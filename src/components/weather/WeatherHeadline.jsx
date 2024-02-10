@@ -6,8 +6,6 @@ export default function WeatherHeadline() {
   const { weatherData } = useContext(WeatherContext);
   const { climate, location, temperature, time, icon } = weatherData;
 
-
-
   return (
     <div>
       <div className='max-md:flex items-center justify-between md:-mt-10'>
@@ -15,7 +13,7 @@ export default function WeatherHeadline() {
           src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
           alt={climate}
         />
-        
+
         <div className='max-md:flex items-center max-md:space-x-4'>
           <h1 className='text-[60px] lg:text-[80px] xl:text-[100px] leading-none md:mb-4'>
             {Math.round(temperature)}°

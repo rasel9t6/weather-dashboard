@@ -4,6 +4,7 @@ export const useWeather = () => {
   const [weatherData, setWeatherData] = useState({
     location: '',
     climate: '',
+    description: '',
     temperature: '',
     maxTemperature: '',
     minTemperature: '',
