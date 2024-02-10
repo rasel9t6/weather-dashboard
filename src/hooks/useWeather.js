@@ -43,6 +43,8 @@ export const useWeather = () => {
         ...weatherData,
         location: data?.name,
         climate: data?.weather[0]?.main,
+        description: data?.weather[0]?.description,
+        icon: data?.weather[0]?.icon,
         temperature: data?.main.temp,
         maxTemperature: data?.main.temp_max,
         minTemperature: data?.main.temp_min,

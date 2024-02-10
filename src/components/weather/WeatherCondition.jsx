@@ -1,14 +1,29 @@
+import { useContext } from 'react';
+import { WeatherContext } from '../../context';
+
 export default function WeatherCondition() {
+  const { weatherData } = useContext(WeatherContext);
+  const {
+    maxTemperature,
+    minTemperature,
+    humidity,
+    description,
+    icon,
+    wind,
+    cloudPercentage,
+  } = weatherData;
+  // icon provide icon code like: 10d, 01n. if last letter is 'n' it mean Night if last letter is 'd' it mean day
+  const lastLetter = icon?.charAt(icon.length - 1);
   return (
     <div>
       <p className='text-sm lg:text-lg font-bold uppercase mb-8'>
-        thunderstorm with light drizzle
+        {`${lastLetter === 'n' ? 'Night' : 'Day'} : ${description}`}
       </p>
       <ul className='space-y-6 lg:space-y-6'>
         <li className='text-sm lg:text-lg flex items-center justify-between space-x-4'>
           <span>Temp max</span>
           <div className='inline-flex space-x-4'>
-            <p>19°</p>
+            <p>{Math.round(maxTemperature)}°</p>
             <img
               src='./assets/icons/temp-max.svg'
               alt='temp-max'
@@ -18,7 +33,7 @@ export default function WeatherCondition() {
         <li className='text-sm lg:text-lg flex items-center justify-between space-x-4'>
           <span>Temp min</span>
           <div className='inline-flex space-x-4'>
-            <p>19°</p>
+            <p>{Math.round(minTemperature)}°</p>
             <img
               src='./assets/icons/temp-min.svg'
               alt='temp-min'
@@ -28,7 +43,7 @@ export default function WeatherCondition() {
         <li className='text-sm lg:text-lg flex items-center justify-between space-x-4'>
           <span>Humidity</span>
           <div className='inline-flex space-x-4'>
-            <p>58%</p>
+            <p>{humidity}%</p>
             <img
               src='./assets/icons/humidity.svg'
               alt='humidity'
@@ -38,7 +53,7 @@ export default function WeatherCondition() {
         <li className='text-sm lg:text-lg flex items-center justify-between space-x-4'>
           <span>Cloudy</span>
           <div className='inline-flex space-x-4'>
-            <p>86%</p>
+            <p>{cloudPercentage}%</p>
             <img
               src='./assets/icons/cloud.svg'
               alt='cloudy'
@@ -48,7 +63,7 @@ export default function WeatherCondition() {
         <li className='text-sm lg:text-lg flex items-center justify-between space-x-4'>
           <span>Wind</span>
           <div className='inline-flex space-x-4'>
-            <p>5km/h</p>
+            <p>{wind}km/h</p>
             <img
               src='./assets/icons/wind.svg'
               alt='wind'
