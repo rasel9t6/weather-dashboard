@@ -2,7 +2,7 @@ import AddFavourite from './AddFavourite';
 import WeatherCondition from './WeatherCondition';
 import WeatherHeadline from './WeatherHeadline';
 
-export default function WeatherBoard() {
+export default function Weather() {
   return (
     <main>
    
